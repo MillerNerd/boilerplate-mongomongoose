@@ -63,10 +63,10 @@ const findEditThenSave = (personId, removePerson) => {
 
 const findAndUpdate = (personName, removePerson) => {
   const ageToSet = 20;
-
+  let updatedPerson = new Person(Person.findOneAndUpdate( {'name': personName}, {'age': ageToSet}, {new: true} ))
   // removes person established in server.js
   // res.json(updatedPerson)
-  removePerson(null /*, data*/);
+  removePerson(null, updatedPerson);
 };
 
 const removeById = (personId, done) => {
