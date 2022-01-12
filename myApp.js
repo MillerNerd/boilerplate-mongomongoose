@@ -63,7 +63,7 @@ const findEditThenSave = (personId, removePerson) => {
 
 const findAndUpdate = (personName, removePerson) => {
   const ageToSet = 20;
-  let updatedPerson = new Person(Person.findOneAndUpdate( {'name': personName}, {'age': ageToSet}, {new: true}, (err, updatedPerson) => {
+  Person(Person.findOneAndUpdate( {'name': personName}, {'age': ageToSet}, {new: true}, (err, updatedPerson) => {
     if (err) return console.error(err)
     // removes person established in server.js
     // res.json(updatedPerson)
