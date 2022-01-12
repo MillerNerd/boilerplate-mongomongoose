@@ -47,14 +47,16 @@ const findPersonById = (personId, done) => {
   })
 };
 
-const findEditThenSave = (personId, done) => {
+const findEditThenSave = (personId, removePerson) => {
   const foodToAdd = "hamburger";
   Person.findById( personId, (err, foundPerson) => {
     if (err) return console.error(err)
     foundPerson.favoriteFoods.push(foodToAdd)
     foundPerson.save( (err, updatedPerson) => {
       if (err) return console.error(err)
-      done(null, updatedPerson)
+      // removes person established in server.js
+      // res.json(updatedPerson)
+      removePerson(null, updatedPerson)
     })
   })
 };
