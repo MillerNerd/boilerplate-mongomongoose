@@ -61,10 +61,12 @@ const findEditThenSave = (personId, removePerson) => {
   })
 };
 
-const findAndUpdate = (personName, done) => {
+const findAndUpdate = (personName, removePerson) => {
   const ageToSet = 20;
 
-  done(null /*, data*/);
+  // removes person established in server.js
+  // res.json(updatedPerson)
+  removePerson(null /*, data*/);
 };
 
 const removeById = (personId, done) => {
